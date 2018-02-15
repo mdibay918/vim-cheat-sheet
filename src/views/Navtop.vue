@@ -33,5 +33,3 @@ export default {
   name: 'Navtop'
 }
 </script>
-<style>
-</style>

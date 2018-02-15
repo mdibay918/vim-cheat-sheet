@@ -11,7 +11,6 @@ import search from './components/Search'
 window.Vue = Vue; 
 window.axios = axios;
 
-
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
@@ -31,5 +30,4 @@ new Vue({
 			</div>
 		</section>
 	</div>`
-
 })
