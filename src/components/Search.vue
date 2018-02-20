@@ -1,24 +1,37 @@
 <template>
-	<div class="tile is-parent is-vertical is-12">
-		<div class="tile is-child">
-			<p class="control">
-				<input class="input is-rounded" 
-				type="text" 
-				v-model="search" 
-				placeholder="Search a command">
-			</p>
-		</div>
-		<div class="columns is-multiline">
-			<div  v-for="cm in filteredCommands" class="column">
-				<cheatinfo
-				:data="cm"
-				:key="cm.command"
-				:command="cm.command" 
-				:description="cm.desc" ></cheatinfo>
+	<div>
+		<div class="tile is-12 is-parent">
+			<div class="tile is-child box">
+				<p class="control">
+					<input class="input is-rounded" 
+					type="text" 
+					v-model="search" 
+					placeholder="Search a command">
+				</p>  
 			</div>
-		</div>	
-	</div>
-	<!-- </div> -->
+		</div>
+		<div class="tile is-12 is-parent">
+			<div class="tile is-child box">
+				<transition-group
+				name="staggered-fade"
+				tag="div"
+				v-bind:css="false"
+				v-on:before-enter="beforeEnter"
+				v-on:enter="enter"
+				v-on:leave="leave">
+				<div 
+					v-for="(cm, index) in filteredCommands" 
+					:key="cm.command"
+					:data-index="index"
+					class="cheat-card">
+					<cheatinfo 
+							:command="cm.command" 
+							:description="cm.desc"></cheatinfo>
+				</div>
+			</transition-group>
+			</div>
+		</div>
+</div>
 </template>
 
 <script>
@@ -38,18 +51,49 @@ export default {
 		filteredCommands: function() {
 			if (this.data["vim"]) {
 				return this.data.vim
-					.filter(v => 
-						(v.command.indexOf(this.search) != -1) || 
-						(v.desc.indexOf(this.search) != -1));	
+				.filter(v => 
+					(v.command.indexOf(this.search) != -1) || 
+					(v.desc.indexOf(this.search) != -1));	
 			} 
 			return [];
+		}
+	},
+	methods: {
+		beforeEnter: function (el) {
+			el.style.opacity = 0
+			el.style.height = 0
+		},
+		enter: function (el, done) {
+			var delay = el.dataset.index * 10
+			setTimeout(function () {
+				Velocity(
+					el,
+					{ opacity: 1, height: '10em' },
+					{ complete: done }
+					)
+			}, delay)
+		},
+		leave: function (el, done) {
+			var delay = el.dataset.index * 10
+			setTimeout(function () {
+				Velocity(
+					el,
+					{ opacity: 0, height: 0 },
+					{ complete: done }
+					)
+			}, delay)
 		}
 	}
 }
 </script>
 <style>
-div#infocard {
-	max-width: 260px;
-	/*padding-left: 10px;*/
+.flip-list-move {
+	transition: transform 1s;
+}
+.search {
+	max-width: 500px;
+}
+.cheat-card {
+	padding: 1em;
 }
 </style>

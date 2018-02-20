@@ -1,6 +1,6 @@
 <template>
-  <!-- Main container -->
-  <div class="tile is-ancestor">
+  
+  <div class="container">
     <search></search> 
   </div>
 </template>

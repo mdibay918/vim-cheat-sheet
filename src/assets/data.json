@@ -169,14 +169,6 @@
 			"desc": "Esc - exit insert mode"
 		},
 		{
-			"command": ">",
-			"desc": "> - shift text right"
-		},
-		{
-			"command": "<",
-			"desc": "< - shift text left"
-		},
-		{
 			"command": "y",
 			"desc": "y - yank (copy) marked text"
 		},
@@ -235,6 +227,118 @@
 		{
 			"command": "x",
 			"desc": "x - delete (cut) character"
+		},
+		{
+			"command": ".",
+			"desc": ". - repeat last command"
+		},
+		{
+			"command": "v",
+			"desc": "v - start visual mode, mark lines, then do a command (like y-yank)"
+		},
+		{
+			"command": "V",
+			"desc": "V - start linewise visual mode"
+		},
+		{
+			"command": "Ctrl + v",
+			"desc": "Ctrl + v - start visual block mode"
+		},
+		{
+			"command": "aw",
+			"desc": "aw - mark a word"
+		},
+		{
+			"command": "ab",
+			"desc": "ab - a block with ()"
+		},
+		{
+			"command": "aB",
+			"desc": "aB - a block with {}"
+		},
+		{
+			"command": "ib",
+			"desc": "ib - inner block with ()"
+		},
+		{
+			"command": "iB",
+			"desc": "iB - inner block with {}"
+		},
+		{
+			"command": ">",
+			"desc": "> - shift text right"
+		},
+		{
+			"command": "<",
+			"desc": "< - shift text left"
+		},
+		{
+			"command": ":reg",
+			"desc": ":reg - show registers content"
+		},
+		{
+			"command": ":marks",
+			"desc": ":marks - list of marks"
+		},
+		{
+			"command": "ma",
+			"desc": "ma - set current position for mark A"
+		},
+		{
+			"command": "qa",
+			"desc": "qa - record macro a"
+		},
+		{
+			"command": "q",
+			"desc": "q - stop recording macro"
+		},
+		{
+			"command": "/pattern",
+			"desc": "/pattern - search for pattern"
+		},
+		{
+			"command": "?pattern",
+			"desc": "?pattern - search backward for pattern"
+		},
+		{
+			"command": "\\vpattern",
+			"desc": "\\vpattern - 'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)"
+		},
+		{
+			"command": "n",
+			"desc": "n - repeat search in same direction"
+		},
+		{
+			"command": "N",
+			"desc": "N - repeat search in opposite direction"
+		},
+		{
+			"command": ":%s/old/new/g",
+			"desc": ":%s/old/new/g - replace all old with new throughout file"
+		},
+		{
+			"command": ":%s/old/new/gc",
+			"desc": ":%s/old/new/gc - replace all old with new throughout file with confirmations"
+		},
+		{
+			"command": ":noh",
+			"desc": ":noh - remove highlighting of search matches"
+		},
+		{
+			"command": ":vimgrep /pattern/ {file}",
+			"desc": ":vimgrep /pattern/ {file} - search for pattern in multiple files e.g. :vimgrep /foo/ **/*"
+		},
+		{
+			"command": ":tabnew",
+			"desc": ":tabnew or :tabnew file - open a file in a new tab"	
+		},
+		{
+			"command": ":e file",
+			"desc": ":e file - edit a file in a new buffer"	
+		},
+		{
+			"command": ":copen",
+			"desc": ":copen - open a window containing the list of matches"	
 		}
 	]
 }
